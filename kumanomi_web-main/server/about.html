@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 字體-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <!-- vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- 圖示 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>Kumanomi_Wotagei</title>
+</head>
+
+<body>
+
+<!--Navbar -->
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <img src="/img/kumanomi_logo.png" alt="kumanomi_logo">
+   
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navMenu" >
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!--文字 -->
+<header class="container-fluid center text-white text-center">
+  
+  <!-- 橫幅 Banner -->
+  <section class="banner d-flex align-items-center justify-content-center text-white"></section>
+  <h1 id="title" class="blur-box">關於我們</h1>
+
+  <p class="text my-5">Kumanomi以"推廣御宅藝"為目標，進行以活動與提供服務!</p>
+  
+  <div class="container my-5">
+    
+   <div class="row g-4 servies">
+
+    <div id="top_card1" class="col-sm-4 mb-5">
+      <div class="card h-100"> <div class="card-body">
+          <img class="card-img-top" src="/img/about/videomaking.png">
+          <h5 class="card-title my-4">影片製作</h5>
+          <p class="card-text">活動紀錄、形象影片、宣傳剪輯</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="top_card2" class="col-sm-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <img class="card-img-top" src="/img/about/teaching.png">
+          <h5 class="card-title my-4">開設講座</h5>
+          <p class="card-text">教學課程、工作坊、體驗活動</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="top_card3" class="col-sm-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <img class="card-img-top" src="/img/about/pafomas.png">
+          <h5 class="card-title my-4">現場演出</h5>
+          <p class="card-text">商業演出、舞台表演、活動合作</p>
+        </div>
+      </div>
+    </div>
+
+   </div>
+  </div> 
+
+
+</header>
+
+<!--活動歷程(vue) -->
+
+<div id="experint_pic" class="position-relative my-5 text-white text-center">
+
+  <img id="bg" src="/img/about/about03.png" class="img-fluid w-100 pic2" alt="">
+
+  <h1 id="title"  class="position-absolute blur-box top-50 start-50 translate-middle exp">
+    活動歷程
+  </h1>
+
+</div>
+
+<div id="text" class="text-center container">我們要讓御宅藝被更多人看見!</div>
+
+<div class="container-fluid center text-white text-center p-5">
+  
+  <p class=" text-center my-5"></p>
+  
+  <div class="container-fluid">
+  <div class="row g-4">
+
+    <!--(vue) -->
+    <div id="even_card">
+      <div class="row g-3 ">
+    
+        <div v-for="item in even_card" class="col-sm-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <img class="card-img-top" :src="item.pic">
+              <h5 class="card-title my-4">{{ item.title }}</h5>
+              <p class="card-text">{{ item.text }}</p>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+   </div>
+  </div> 
+
+</div>
+
+<div class="divider"></div>
+
+<!-- 聯絡我們 -->
+<section class="connect_card mt-5 py-5 text-white">
+  <div class="container">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+
+
+      <!-- 左側文字 -->
+      <div class="col-md-5 mt-4 text-center text-md-start">
+        <h2 class="my-3 " id="title_l">聯繫我們</h2>
+        <p id="text">想讓您的活動演出與眾不同嗎?</p>
+        <p id="text">想了解體驗特別的「御宅藝文化」嗎?</p>
+        <h5>快來聯繫我們！</h5>
+        <a class="btn my-5" href="contact.html">聯繫方式</a>
+      </div> 
+
+      <!-- 右側圖片 -->
+      <div class="col-md-7 text-end">
+        <img id="con_pic" src="/img/nambus.png" class="img-fluid rounded" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-bg position-relative text-white">
+  <!-- dark overlay -->
+  <div class="footer-overlay"></div>
+
+  <div class="container position-relative">
+    <div class="row text-center align-items-center min-vh-50">
+
+
+      <!-- copyright -->
+      <div class="col-12 mt-5">
+        <p class="footer-copy my-5">
+          © 2025 KUMANOMI — All Rights Reserved.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 回頂部按鈕 -->
+  <a href="#" class="back-to-top">
+    ↑
+  </a>
+</footer>
+
+
+</body>
+
+<div id="cursor-trail"></div>
+
+<script>
+
+//圖片1縮放
+gsap.fromTo(".banner", 
+  { scale: 2 },
+  { scale: 1.5, 
+    scrollTrigger: {
+      trigger: "#title",
+      start: "top 780px",
+      end: "bottom x",
+      scrub: 1,
+      markers: 0,} 
+  }
+);
+
+
+//kumanomi以...滾動
+  gsap.from(".text", {
+    scrollTrigger:{
+      trigger:"#title",
+      start:"top 200px",
+      end:"bottom 150px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y: 50, duration: 2
+  });
+//範疇...左卡滾動
+  gsap.from("#top_card1", {
+    scrollTrigger:{
+      trigger:".text",
+      start:"top 210px",
+      end:"bottom 190px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, x:-100, duration: 2
+  });
+//範疇...中卡滾動
+  gsap.from("#top_card2", {
+    scrollTrigger:{
+      trigger:".text",
+      start:"top 215px",
+      end:"bottom 195px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y:100, duration: 2
+  });
+//範疇...右卡滾動
+  gsap.from("#top_card3", {
+    scrollTrigger:{
+      trigger:".text",
+      start:"top 220px",
+      end:"bottom 200px",
+      scrub:false,
+      markers:false,
+    },
+    opacity: 0, x:100, duration: 2
+  });
+
+
+   //歷程圖片顯示.
+   gsap.from("#bg", {
+    scrollTrigger:{
+      trigger:".servies",
+      start:"top 100px",
+      end:"bottom 200px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, duration: 1
+  });
+
+
+  //歷程顯示.
+  gsap.from(".exp", {
+    scrollTrigger:{
+      trigger:".pic2",
+      start:"top 100px",
+      end:"bottom 200px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y:200, duration: 1
+  });
+
+
+  //歷程一張一張跑出來我移去vue裡面寫
+
+
+
+  //聯繫.
+  gsap.from(".connect_card", {
+    scrollTrigger:{
+      trigger:".footer-copy",
+      start:"bottom 200px",
+      scrub:false,
+      markers:1,
+    },
+    opacity: 0, y:100, duration: 1
+  });
+
+  //footer
+
+   gsap.to(".footer-bg", {
+    scrollTrigger:{
+      trigger:".footer-copy",
+      start:"top 50px",
+      end:"bottom -10px",
+      scrub:1,
+      markers:0,
+    },
+    scale:1.2,duration: 1
+  });
+
+
+
+
+  //背景縮放
+  gsap.from("#bg1", {
+      opacity: 0, duration: 1
+  });
+
+
+    //發光鼠標
+    const trailContainer = document.getElementById("cursor-trail");
+
+window.addEventListener("mousemove", (e) => {
+  const dot = document.createElement("div");
+  dot.classList.add("trail-dot");
+  trailContainer.appendChild(dot);
+
+  gsap.set(dot, {
+    x: e.clientX - 8,
+    y: e.clientY - 8
+  });
+
+  gsap.to(dot, {
+    opacity: 0,
+    scale: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    onComplete: () => {
+      dot.remove();
+    }
+  });
+});
+
+
+</script>
+</html>
+
+
+
+
+<!-- pt src="vendor/jquery/jquery.min.js"></script>-->
+<script src="js/bs5vue.js"></script>
+

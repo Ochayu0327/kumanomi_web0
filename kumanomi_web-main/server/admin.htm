@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>後台管理</title>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-5">
+
+<h2 class="mb-4">🔧 後台管理系統</h2>
+
+<!-- ===== 影片管理 ===== -->
+<h4>🎬 精選作品</h4>
+
+<div class="card p-3 mb-3">
+  <input class="form-control mb-2" v-model="v_id" placeholder="YouTube ID">
+  <input class="form-control mb-2" v-model="v_title" placeholder="影片標題">
+  <button class="btn btn-primary" @click="addVideo">新增影片</button>
+</div>
+
+<ul class="list-group mb-5">
+  <li class="list-group-item d-flex justify-content-between"
+      v-for="v in videos" :key="v.id">
+    {{ v.title }}
+    <button class="btn btn-danger btn-sm" @click="delVideo(v.id)">刪除</button>
+  </li>
+</ul>
+
+<hr>
+
+<!-- ===== 活動歷程管理 ===== -->
+<h4>📅 活動歷程</h4>
+
+<div class="card p-3 mb-3">
+  <input class="form-control mb-2" v-model="e_pic" placeholder="圖片路徑">
+  <input class="form-control mb-2" v-model="e_title" placeholder="標題">
+  <input class="form-control mb-2" v-model="e_text" placeholder="說明">
+  <button class="btn btn-success" @click="addEvent">新增活動</button>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between"
+      v-for="(e,i) in even_card" :key="i">
+    {{ e.title }}
+    <button class="btn btn-danger btn-sm" @click="delEvent(i)">刪除</button>
+  </li>
+</ul>
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      videos: [],
+      even_card: [],
+      v_id: "", v_title: "",
+      e_pic: "", e_title: "", e_text: ""
+    };
+  },
+  mounted() {
+    this.load();
+  },
+  methods: {
+    load() {
+      $.get("/videos", r => this.videos = r);
+      $.get("/even_card", r => this.even_card = r);
+    },
+    addVideo() {
+      $.post("/videos", {
+        id: this.v_id,
+        title: this.v_title
+      }, () => {
+        this.v_id = this.v_title = "";
+        this.load();
+      });
+    },
+    delVideo(id) {
+      $.ajax({
+        url: "/videos/" + id,
+        method: "DELETE",
+        success: () => this.load()
+      });
+    },
+    addEvent() {
+      $.post("/even_card", {
+        pic: this.e_pic,
+        title: this.e_title,
+        text: this.e_text
+      }, () => {
+        this.e_pic = this.e_title = this.e_text = "";
+        this.load();
+      });
+    },
+    delEvent(i) {
+      $.ajax({
+        url: "/even_card/" + i,
+        method: "DELETE",
+        success: () => this.load()
+      });
+    }
+  }
+}).mount("body");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+/* 全站基礎設定 --------------------------------------------------- */
+body {
+    background-color: #010102;
+    font-family:  "Noto Sans TC", sans-serif;
+    color: #191919;
+    /*margin: 50;*/
+}
+
+
+
+/* --------------------------------------------------------------- */
+
+
+
+/* 導覽列（Navbar）設計 ------------------------------------------ */
+.navbar {
+    background-color: #0f0c1bb0 !important;
+    position: fixed;
+    z-index: 1000; /* 最上層 */
+    backdrop-filter: blur(6px);
+    
+    -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 50px,
+    transparent 100%
+    );
+   
+}
+/* 導覽列（Navbar）響應式不漸層 ------------------------------------------ */
+@media (max-width: 576px) {
+    .navbar {
+        background: linear-gradient(
+            to bottom,
+            rgba(8, 7, 10, 0.8),
+            rgba(20, 19, 19, 0.603)
+          );
+      -webkit-mask-image: none;
+      mask-image: none;
+      backdrop-filter: none;
+    }
+}
+
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #db932d !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #db932d !important;
+}
+
+/* --------------------------------------------------------------- */
+
+/* 圖片輪播（Carousel） ----------------------------------------- */
+
+
+.carousel-inner{
+    background-color:rgb(0, 0, 0) 
+    !important;
+}
+
+
+.carousel-item img {
+
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 50%,
+        transparent 100% );
+        
+    max-height: 600px;
+    min-height: 400px;
+    object-fit: cover;
+    filter: blur(1px);
+    transform: scale(1.1); 
+}
+
+
+
+.carousel h1{
+
+    font-size: clamp(1rem, 3vw, 3.2rem);
+    font-family: "Noto Serif TC", serif;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    
+}
+
+.carousel-caption-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: 100%;
+    padding: 0 1rem;
+  
+    display: flex;
+    justify-content: center;
+  }
+
+
+.carousel p {
+
+    font-size: clamp(0.8rem, 2vw, 2.4rem);
+    
+}
+
+.blur-box {
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+/* Banner 橫幅 --------------------------------------------------- */
+
+
+.banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: url("/img/about/about01.png") center / contain no-repeat;
+}
+
+@media (min-width: 768px) {
+  .banner {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+  
+  .banner2 {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: url("/img/nambus.png") center / contain no-repeat;
+  }
+  
+  @media (min-width: 768px) {
+    .banner2 {
+      aspect-ratio: 16 / 4;
+    }
+  }
+
+header {
+    font-family: "Noto Sans TC", sans-serif;
+    font-style: normal;
+    background: linear-gradient(
+        #000000,
+        #1b2145,
+      );
+      overflow: hidden;  
+}
+
+#title{
+       
+    text-align: center;          
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-size: clamp(3.2rem, 6vw, 4rem);
+    font-style: normal;
+
+}
+
+#title_l{
+                 
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-size: clamp(1.6rem, 6vw, 4rem);
+    font-style: normal;
+
+}
+
+#sub_title{
+                 
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 6vw, 4rem);
+    font-style: normal;
+
+}
+
+#text{
+    color: #b4b4b4;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 150;
+    
+   
+}
+
+
+header h3{
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 200;
+    color: #db932d;
+}
+
+iframe {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+/* about 分層 */
+
+.about_banner-bg {
+  position: absolute;
+  inset: 0; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/*社群圖示 --------------------------------------------------------------- */
+.d-flex a {
+    text-decoration: none;
+    transition: opacity 0.2s ease-in-out;
+   
+  }
+  
+  .d-flex a:hover {
+    color: #fff;
+  
+     filter: drop-shadow(0 0 10px rgba(229, 166, 48, 0.8)) 
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+     transform: scale(1.1); }
+
+
+/* --------------------------------------------------------------- */
+
+
+/* 卡片樣式（活動歷程） ----------------------------------- */
+
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding:10px;
+    background-color: rgb(39, 39, 39);
+    box-shadow: 0 4px 10px rgba(33, 33, 33, 0.489);
+    transition: 0.3s;
+}
+
+.card:hover  {
+    transform: translateY(-4px) scale(1.02);
+    background-color: rgb(230, 230, 230);
+    box-shadow: 0 1px 30px rgba(253, 170, 37, 0.721);
+
+}
+
+.card:hover h5 {
+    color: #d48b25;
+}
+
+
+.card:hover p {
+    color: #414141;
+}
+
+.card img {
+    border-radius: 3%;
+}
+
+/* 卡片文字 */
+.card h5 {
+    color: #dedede;
+    font-weight: bold;
+}
+
+.card p {
+    color: #ffffff;
+}
+
+/*聯絡頁面卡*/
+.contact-card {
+  background: linear-gradient(
+    rgba(41, 43, 72, 0.774),
+    rgba(0,0,0,0.8),
+  );
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+.contact-card a {
+  color: #ffb347;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-card a:hover {
+  color: #ffd27d;
+  text-decoration: underline;
+  filter: drop-shadow(0 0 10px rgba(229, 166, 48, 0.8)) 
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+     transform: scale(1.1); 
+}
+
+.contact-item {
+  margin: 12px 0;
+  font-size: clamp(1.1rem, 4vw, 1.2rem);
+}
+
+
+
+
+/* --------------------------------------------------------------- */
+/* 按鈕設計 ----------------------------------------------------- */
+.btn {
+    border-radius: 15px;
+    padding: clamp(14px, 3vw, 22px) clamp(32px, 6vw, 64px);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    background: linear-gradient(135deg, #d48b25, #a97123);
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+        color: #000;
+        text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+        background: linear-gradient(135deg, #ffb85a, #8b6739);
+        box-shadow:
+          0 0 8px rgba(239, 147, 42, 0.55),
+          0 0 20px rgba(255, 150, 0, 0.7),
+          0 0 60px rgba(255, 120, 0, 0.6);
+      
+        transform: translateY(-4px) scale(1.02);
+      
+  }
+
+
+/* --------------------------------------------------------------- */
+
+
+/* 聯絡我們卡 ---------------------------------------------------- */
+.connect_card {
+
+    background: linear-gradient(
+        #000000,
+        #161c3c,
+        #000000
+      );
+}
+
+
+/* 分隔線 */
+.divider {
+    width: 100%;
+    height: 2px;
+    margin: 5rem 0;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(219,147,45,0.8),
+      transparent
+    );
+  }
+
+/* --------------------------------------------------------------- 
+/* footer background */
+.footer-bg {
+    background: url("/img/footer.png") center/cover no-repeat;
+    min-height: 350px;
+  }
+  
+  /* dark overlay */
+  .footer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+  
+  /* content above overlay */
+  .footer-bg .container {
+    z-index: 2;
+  }
+  
+  /* copyright text */
+  .footer-copy {
+    color: #b4b4b4;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    font-weight: 150;
+  }
+  
+  /* back to top */
+  .back-to-top {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 42px;
+    height: 42px;
+    background: rgba(26, 26, 26, 0.568);
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    border-radius: 6px;
+    text-decoration: none;
+    z-index: 3;
+  }
+  
+  .back-to-top:hover {
+    background: rgba(239, 176, 75, 0.831);
+    color: #000000;
+    filter: drop-shadow(0 0 10px rgba(229, 166, 48, 0.8)) 
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+     transform: scale(1.1); 
+  }
+/* --------------------------------------------------------------- */
+/* 發光鼠標----------------------------------------------------------- */
+#cursor-trail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; 
+  z-index: 9999;
+}
+
+.trail-dot {
+  position: absolute;
+  width: 15px;
+  height:15px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 246, 229, 0.9),
+    rgba(255, 160, 27, 0.779),
+    transparent 70%
+  );
+  filter: blur(2px);
+}

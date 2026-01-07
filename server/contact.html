@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 字體-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+    <!-- 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+    <title>Kumanomi_Wotagei</title>
+  </head>
+
+<body>
+
+  <body>
+
+    <!--Navbar -->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <img src="/img/kumanomi_logo.png" alt="kumanomi_logo">
+       
+    
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navMenu" >
+          <ul class="navbar-nav ms-auto"> 
+            <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    
+    
+    <!--文字 -->
+    <header class="container-fluid center text-white text-center">
+      
+      <!-- 橫幅 Banner -->
+      <section class="banner2 d-flex align-items-center justify-content-center text-white"></section>
+      <h1 id="title" class="blur-box">聯絡我們</h1>
+    
+      <p class="text my-5">活動演出、教學講座、影片合作等需求，歡迎聯絡我們!</p>
+      <p class="text my-5">我們將帶給您最專業的服務!!</p>
+    
+    </header>
+   <div class="contact-card text-center p-4">
+        
+        <!-- Logo / 名稱 -->
+        <img src="/img/logos/Kumanomi_logo_whi.png" alt="logo" class="mb-1" width="80">
+        <h4 class="fw-bold mb-3">KUMANOMI Wotagei</h4>
+
+        <!-- 圖示超連結 -->
+
+        <div class="my-5"> <div class="container">
+          <div class="d-flex justify-content-center align-items-center gap-4">
+           
+            
+            <a href="https://www.youtube.com/@OchayulovE" class="text-white fs-2 mb-2" id="youtube_icon">
+              <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.instagram.com/kumanomi.wota?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" class="text-white fs-2 mb-2"  id="ig_icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@ochayulove" class="text-white fs-2 mb-2"  id="tiktok_icon">
+              <i class="fab fa-tiktok"></i>
+            </a>
+
+      
+          </div>
+
+        <!-- Email -->
+        <p class="contact-item">
+          <i id="email"class="fa-sharp fa-solid fa-envelope-open mb-5"></i>
+          <a href="https://mail.google.com/mail">
+            ochayu0327@gmail.com
+          </a>
+        </p>
+
+      </div>
+    </div>    
+  </div>    
+
+ <!-- 關於我們 -->
+<section class="connect_card mt-5 py-5 text-white">
+  <div class="container">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+
+      <!-- 左側文字 -->
+      <div class="col-md-5 mt-4 text-center text-md-start">
+        <h2 class="my-3" id="title_l">關於我們</h2>
+        <p id="text">Kumanomi是一個御宅藝表演團體。</p>
+        <p id="text">藉由光棒揮舞出的殘影搭配上整齊的御宅藝動作編排，帶大家體驗「光與力」的視覺饗宴！</p>
+        <h5>提供哪些服務? 活動範疇? 團隊歷程?</h5>
+        <a class="btn my-5" href="about.html">了解更多</a>
+      </div>
+
+      <!-- 右側圖片 -->
+      <div class="col-md-7 text-end">
+        <img id="con_pic" src="/img/video_1_ele.gif" class="img-fluid rounded" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-bg position-relative text-white">
+  <!-- dark overlay -->
+  <div class="footer-overlay"></div>
+
+  <div class="container position-relative">
+    <div class="row text-center align-items-center min-vh-50">
+
+
+      <!-- copyright -->
+      <div class="col-12 mt-5">
+        <p class="footer-copy my-5">
+          © 2025 KUMANOMI — All Rights Reserved.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 回頂部按鈕 -->
+  <a href="#" class="back-to-top">
+    ↑
+  </a>
+</footer>
+
+
+</body>
+
+<div id="cursor-trail"></div>
+
+<script>
+
+//圖片1縮放
+gsap.fromTo(".banner2", 
+  { scale: 1.5 },
+  { scale: 1.1, 
+    scrollTrigger: {
+      trigger: "#title",
+      start: "top 780px",
+      end: "bottom x",
+      scrub: 1,
+      markers: 0,} 
+  }
+);
+
+
+//活動演出、教學講座、影片合作...滾動
+gsap.from(".text", {
+    scrollTrigger:{
+      trigger:"#title",
+      start:"top 200px",
+      end:"bottom 150px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y: 50, duration: 2
+  });
+
+//kumanomi以...滾動
+gsap.from(".contact-card", {
+    scrollTrigger:{
+      trigger:".text",
+      start:"top 200px",
+      end:"bottom 150px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y: 50, duration: 2
+  });
+
+
+
+ // 聯繫.
+  gsap.from(".connect_card", {
+    scrollTrigger:{
+      trigger:"#email",
+      start:"top 50px",
+      scrub:false,
+      markers:0,
+    },
+    opacity: 0, y:100, duration: 1
+  });
+
+  //footer
+
+  gsap.to(".footer-bg", {
+    scrollTrigger:{
+      trigger:".footer-copy",
+      start:"top 800px",
+      end:"bottom 700px",
+      scrub:1,
+      markers:0,
+    },
+    scale:1.1,duration: 1
+  });
+
+
+
+
+  //背景縮放
+  gsap.from("#bg1", {
+      opacity: 0, duration: 1
+  });
+
+    //發光鼠標
+    const trailContainer = document.getElementById("cursor-trail");
+
+window.addEventListener("mousemove", (e) => {
+  const dot = document.createElement("div");
+  dot.classList.add("trail-dot");
+  trailContainer.appendChild(dot);
+
+  gsap.set(dot, {
+    x: e.clientX - 8,
+    y: e.clientY - 8
+  });
+
+  gsap.to(dot, {
+    opacity: 0,
+    scale: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    onComplete: () => {
+      dot.remove();
+    }
+  });
+});
+
+
+</script>
+
+
+
+
+<!-- pt src="vendor/jquery/jquery.min.js"></script>-->
+<script src="js/bs5vue.js"></script>
+
+</html>

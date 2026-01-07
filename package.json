@@ -1,5 +1,21 @@
 {
+  "name": "kumanomi_web",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "wotagei"
+  ],
+  "license": "ISC",
+  "author": "ochayu",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
   "dependencies": {
+    "express": "^5.2.1",
     "nedb-promises": "^6.2.3"
-  }
+  },
+  "devDependencies": {}
 }

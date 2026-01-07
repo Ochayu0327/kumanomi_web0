@@ -9,7 +9,7 @@ var DB = require("nedb-promises");
 var even_cardDB = DB.create(__dirname + "/even_card.db");
 var videosDB = DB.create(__dirname + "/videos.db");
 
-// 初始化資料(只在資料庫為空時執行
+// 初始化資料(只在資料庫為空時執行)
 even_cardDB.count({}).then(count => {
   if (count === 0) {
     // even_cardDB.insert([

@@ -16,7 +16,7 @@ const videoApp = createApp({
         method: "get",
         dataType: "json",
         success: (result) => {
-          this.videos = result;
+          this.videos = result; 
         },
         error: (err) => {
           console.error("影片資料讀取失敗", err);
@@ -24,6 +24,4 @@ const videoApp = createApp({
       });
     }
   }
-});
-
-videoApp.mount("#videoApp");
+}).mount("#videoApp"); 

@@ -6,11 +6,30 @@ const serviceApp = createApp({
       even_card: []
     };
   },
-
+  mounted() {
+    this.loadEvents();
+  },
   methods: {
+    loadEvents() {
+      $.ajax({
+        url: "/even_card",
+        method: "get",
+        dataType: "json",
+        success: (result) => {
+          this.even_card = result;
+          this.$nextTick(() => {
+            this.initGsap();
+          });
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    },
     initGsap() {
       gsap.registerPlugin(ScrollTrigger);
 
+     
       gsap.from(this.$el.querySelectorAll(".col-sm-4"), {
         scrollTrigger: {
           trigger: this.$el,
@@ -26,21 +45,3 @@ const serviceApp = createApp({
     }
   }
 }).mount("#even_card");
-
-
-
-
-$.ajax({
-  url: "/even_card",
-  method: "get",
-  dataType: "json",
-  success: function (result) {
-    serviceApp.even_card = result;
-    serviceApp.$nextTick(() => {
-      serviceApp.initGsap();
-    });
-  },
-  error: function (err) {
-    console.error(err);
-  }
-});

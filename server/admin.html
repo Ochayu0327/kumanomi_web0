@@ -14,7 +14,7 @@
 
 <h2 class="mb-4">🔧 後台管理系統</h2>
 
-<!-- ===== 影片管理 ===== -->
+
 <h4>🎬 精選作品</h4>
 
 <div class="card p-3 mb-3">
@@ -33,13 +33,13 @@
 
 <hr>
 
-<!-- ===== 活動歷程管理 ===== -->
 <h4>📅 活動歷程</h4>
 
 <div class="card p-3 mb-3">
   <input class="form-control mb-2" v-model="e_pic" placeholder="圖片路徑">
   <input class="form-control mb-2" v-model="e_title" placeholder="標題">
   <input class="form-control mb-2" v-model="e_text" placeholder="說明">
+  <input class="form-control mb-2" v-model="e_date"  type="date"  placeholder="日期">
   <button class="btn btn-success" @click="addEvent">新增活動</button>
 </div>
 
@@ -60,9 +60,11 @@ createApp({
       videos: [],
       even_card: [],
       v_id: "", v_title: "",
-      e_pic: "", e_title: "", e_text: ""
+      e_pic: "", e_title: "", e_text: "",
+      e_date: "" 
     };
   },
+  
   mounted() {
     this.load();
   },
@@ -79,6 +81,7 @@ createApp({
         error: err => alert("讀取活動失敗")
       });
     },
+
     addVideo() {
       if (!this.v_id || !this.v_title) return alert("請填寫 YouTube ID 與標題");
       $.ajax({
@@ -87,6 +90,7 @@ createApp({
         error: () => alert("新增影片失敗")
       });
     },
+
     delVideo(id) {
       $.ajax({
         url: "/videos/" + id, method: "DELETE",
@@ -94,15 +98,17 @@ createApp({
         error: () => alert("刪除影片失敗")
       });
     },
+
     addEvent() {
       if (!this.e_pic || !this.e_title || !this.e_text) return alert("請填寫圖片、標題與說明");
       $.ajax({
         url: "/even_card", method: "POST",
-        data: { pic: this.e_pic, title: this.e_title, text: this.e_text },
+        data: { pic: this.e_pic, title: this.e_title, text: this.e_text, eventDate: this.e_date},
         success: () => { this.e_pic = this.e_title = this.e_text = ""; this.load(); },
         error: () => alert("新增活動失敗")
       });
     },
+
     delEvent(id) {
       $.ajax({
         url: "/even_card/" + id,

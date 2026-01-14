@@ -19,7 +19,7 @@ const videoApp = createApp({
           this.videos = result; 
         },
         error: (err) => {
-          console.error("影片資料讀取失敗", err);
+          console.error(err);
         }
       });
     }

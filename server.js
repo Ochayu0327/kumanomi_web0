@@ -102,7 +102,7 @@ server.post("/even_card", async (req, res) => {
 
 /* 刪除evencard資料 */
 server.delete("/even_card/:id", async (req, res) => {
-  await even_cardDB.remove({ _id: req.params.id });
+  await even_cardDB.remove({ id: req.params.id });
   res.json({ success: true });
 });
 

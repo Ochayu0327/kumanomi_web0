@@ -14,11 +14,11 @@
 
 <h2 class="mb-4">🔧 後台管理系統</h2>
 
-
+<div id="app">
 <h4>🎬 精選作品</h4>
 
 <div class="card p-3 mb-3">
-  <input class="form-control mb-2" v-model="v_id" placeholder="YouTube ID">
+  <input class="form-control mb-2" v-model="v_url" placeholder="YouTube 網址">
   <input class="form-control mb-2" v-model="v_title" placeholder="影片標題">
   <button class="btn btn-primary" @click="addVideo">新增影片</button>
 </div>
@@ -45,81 +45,89 @@
 
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between"
-      v-for="e in even_card" :key="e._id">
+      v-for="e in even_card" :key="e.id">
     {{ e.title }}
-    <button class="btn btn-danger btn-sm" @click="delEvent(e._id)">刪除</button>
+    <button class="btn btn-danger btn-sm" @click="delEvent(e.id)">刪除</button>
   </li>
 </ul>
+</div>
+</body>
 
 <script>
-const { createApp } = Vue;
-
-createApp({
-  data() {
-    return {
-      videos: [],
-      even_card: [],
-      v_id: "", v_title: "",
-      e_pic: "", e_title: "", e_text: "",
-      e_date: "" 
-    };
-  },
+  const { createApp } = Vue;
   
-  mounted() {
-    this.load();
-  },
-  methods: {
-    load() {
-      $.ajax({
-        url: "/videos", method: "GET", dataType: "json",
-        success: r => this.videos = r,
-        error: err => alert("讀取影片失敗")
-      });
-      $.ajax({
-        url: "/even_card", method: "GET", dataType: "json",
-        success: r => this.even_card = r,
-        error: err => alert("讀取活動失敗")
-      });
+  createApp({
+    data() {
+      return {
+        videos: [],
+        even_card: [],
+        v_url: "", v_title: "",
+        e_pic: "", e_title: "", e_text: "",
+        e_date: "" 
+      };
     },
-
-    addVideo() {
-      if (!this.v_id || !this.v_title) return alert("請填寫 YouTube ID 與標題");
-      $.ajax({
-        url: "/videos", method: "POST", data: { id: this.v_id, title: this.v_title },
-        success: () => { this.v_id = this.v_title = ""; this.load(); },
-        error: () => alert("新增影片失敗")
-      });
+    
+    mounted() {
+      this.load();
     },
-
-    delVideo(id) {
-      $.ajax({
-        url: "/videos/" + id, method: "DELETE",
-        success: () => this.load(),
-        error: () => alert("刪除影片失敗")
-      });
-    },
-
-    addEvent() {
-      if (!this.e_pic || !this.e_title || !this.e_text) return alert("請填寫圖片、標題與說明");
-      $.ajax({
-        url: "/even_card", method: "POST",
-        data: { pic: this.e_pic, title: this.e_title, text: this.e_text, eventDate: this.e_date},
-        success: () => { this.e_pic = this.e_title = this.e_text = ""; this.load(); },
-        error: () => alert("新增活動失敗")
-      });
-    },
-
-    delEvent(id) {
-      $.ajax({
-        url: "/even_card/" + id,
-        method: "DELETE",
-        success: () => this.load(),
-        error: () => alert("刪除活動失敗")
-      });
+    methods: {
+      load() {
+        $.ajax({
+          url: "/videos", 
+          method: "GET",
+          dataType: "json",
+          success: r => this.videos = r,
+          error: err => alert("讀取影片失敗")
+        });
+        $.ajax({
+          url: "/even_card",
+          method: "GET", 
+          dataType: "json",
+          success: r => this.even_card = r,
+          error: err => alert("讀取活動失敗")
+        });
+      },
+  
+      addVideo() {
+        if (!this.v_url || !this.v_title) return alert("請填寫 YouTube url 與標題");
+        $.ajax({
+          url: "/videos",
+          method: "POST",
+          data: { id: this.v_url, title: this.v_title },
+  
+          success: () => { this.v_url= this.v_title = ""; this.load(); },
+          error: () => alert("新增影片失敗")
+        });
+      },
+  
+      delVideo(_id) {
+        $.ajax({
+          url: "/videos/" + _id, method: "DELETE",
+          success: () => this.load(),
+          error: () => alert("刪除影片失敗")
+        });
+      },
+  
+      addEvent() {
+        if (!this.e_pic || !this.e_title || !this.e_text) return alert("請填寫圖片、標題與說明");
+        $.ajax({
+          url: "/even_card", method: "POST",
+          data: { pic: this.e_pic, title: this.e_title, text: this.e_text, eventDate: this.e_date},
+          success: () => { this.e_pic = this.e_title = this.e_text = ""; this.load(); },
+          error: () => alert("新增活動失敗")
+        });
+      },
+  
+      delEvent(id) {
+        $.ajax({
+          url: "/even_card/"+id,  method: "DELETE",
+          success: () => this.load(),
+          error: () => alert("刪除活動失敗")
+        });
+      }
     }
-  }
-}).mount("body");
-</script>
+  }).mount("#app");
+  </script>
+  
 
-</body>
 </html>

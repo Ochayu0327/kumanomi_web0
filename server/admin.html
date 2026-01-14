@@ -25,9 +25,9 @@
 
 <ul class="list-group mb-5">
   <li class="list-group-item d-flex justify-content-between"
-      v-for="v in videos" :key="v.id">
+      v-for="v in videos" :key="v._id">
     {{ v.title }}
-    <button class="btn btn-danger btn-sm" @click="delVideo(v.id)">刪除</button>
+    <button class="btn btn-danger btn-sm" @click="delVideo(v._id)">刪除</button>
   </li>
 </ul>
 
@@ -45,9 +45,9 @@
 
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between"
-      v-for="e in even_card" :key="e.id">
+      v-for="e in even_card" :key="e._id">
     {{ e.title }}
-    <button class="btn btn-danger btn-sm" @click="delEvent(e.id)">刪除</button>
+    <button class="btn btn-danger btn-sm" @click="delEvent(e._id)">刪除</button>
   </li>
 </ul>
 </div>

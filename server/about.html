@@ -203,8 +203,8 @@
 
 //圖片1縮放
 gsap.fromTo(".banner", 
-  { scale: 2 },
-  { scale: 1.5, 
+  { scale: 2.5 },
+  { scale: 2.3, 
     scrollTrigger: {
       trigger: "#title",
       start: "top 780px",
@@ -295,9 +295,9 @@ gsap.fromTo(".banner",
   gsap.from(".connect_card", {
     scrollTrigger:{
       trigger:".footer-copy",
-      start:"bottom 200px",
+      start:"top 400px",
       scrub:false,
-      markers:0,
+      markers:1,
     },
     opacity: 0, y:100, duration: 1
   });

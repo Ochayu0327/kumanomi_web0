@@ -49,7 +49,7 @@ even_cardDB.count({}).then(count => {
       },
 
       {
-        pic: "/img/about/comingsoon.png",
+        pic: "/img/about/peiryn3.png",
         title: "光踊祭",
         text: "2026/02/01 @台北流行音樂中心 Live house D",
         eventDate: "2026-02-01",
